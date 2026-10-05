@@ -11,5 +11,6 @@ namespace HelpDesk.API.Data
 
         public DbSet<Chamado> Chamados {get; set;}
         public DbSet<Categoria> Categorias {get; set;}
+        public DbSet<Interacao> Interacoes {get; set;}
     }
 }

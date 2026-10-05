@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using HelpDesk.API.Models.Entities;
 using HelpDesk.API.Data;
 
