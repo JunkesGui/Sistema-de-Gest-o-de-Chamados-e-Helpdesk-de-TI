@@ -23,12 +23,16 @@ namespace HelpDesk.API.Services
             chamado.Status = StatusEnum.Aberto;
             chamado.DataAbertura = DateTime.Now;
 
-            await _iRepository.CreateAsync(new Interacao{
+            await _cRepository.CreateAsync(chamado);
+
+            var interacao = new Interacao{
                 ChamadoId = chamado.Id,
                 DataRegistro = DateTime.Now,
-                Autor = "Sistema",
-                Mensagem = "Chamado aberto"
-            });
+                Mensagem = "Chamado Aberto",
+                Autor = "Admin"
+            };
+
+            await _iRepository.CreateAsync(interacao);
         }
 
         public async Task<Chamado> GetOne(int id){
