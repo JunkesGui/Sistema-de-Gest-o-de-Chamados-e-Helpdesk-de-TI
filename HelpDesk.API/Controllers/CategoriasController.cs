@@ -1,6 +1,5 @@
-using HelpDesk.API.Data;
 using HelpDesk.API.Models.Entities;
-using HelpDesk.API.Repositories;
+using HelpDesk.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HelpDesk.API.Controllers
@@ -8,34 +7,33 @@ namespace HelpDesk.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     public class CategoriasController : ControllerBase{
-        private readonly CategoriasRepository _repository;
+        private readonly CategoriasService _service;
 
-        public CategoriasController(AppDbContext context){
-            _repository = new CategoriasRepository(context);
+        public CategoriasController(CategoriasService service){
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll(){
-            List<Categoria> categorias = await _repository.GetAllAsync();
+            List<Categoria> categorias = await _service.Getall();
             return Ok(categorias);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne(int id){
-            Categoria categoria = await _repository.GetOneAsync(id);
+            Categoria categoria = await _service.GetOne(id);
             return Ok(categoria);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(Categoria categoria){
-            await _repository.CreateAsync(categoria);
+            await _service.Create(categoria);
             return Created(" ", categoria);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id){
-            Categoria categoria = await _repository.GetOneAsync(id);
-            await _repository.DeleteAsync(categoria);
+            await _service.Delete(id);
             return Ok("Categoria deletada com sucesso!");
         }
 

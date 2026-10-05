@@ -25,7 +25,7 @@ namespace HelpDesk.API.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task AlterAsync(Categoria categoria){
+        public async Task UpdateAsync(Categoria categoria){
             _context.Categorias.Update(categoria);
             await _context.SaveChangesAsync();
         }
