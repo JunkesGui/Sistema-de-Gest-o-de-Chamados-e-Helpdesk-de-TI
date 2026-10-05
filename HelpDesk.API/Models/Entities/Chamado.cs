@@ -1,22 +1,24 @@
-namespace DeskFlow.API.Models.Entities
+using System.ComponentModel.DataAnnotations;
+
+namespace HelpDesk.API.Models.Entities
 {
     public class Chamado{
         [Key]
         public int Id {get; set;}
 
         [Required(ErrorMessage= "Por favor insira um título ao chamado.")]
-        [MaxLenght(100)]
+        [MaxLength(100)]
         public string title {get; set;}
 
         [Required(ErrorMessage= "Por favor insira uma descriação ao cahamdo.")]
-        [MaxLenght(200)]
+        [MaxLength(200)]
         public string description {get; set;}
 
         [Required(ErrorMessage= "Por favor insira um nível de prioridade ao cahamdo.")]
         public string status {get; set;}
 
         [Required(ErrorMessage= "Por favor insira o nome do solicitante ao cahamdo.")]
-        [MaxLenght(50)]
+        [MaxLength(50)]
         public string requester {get; set;}
 
         public DateTime startDate {get; set;}
