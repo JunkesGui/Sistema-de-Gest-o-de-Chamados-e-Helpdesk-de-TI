@@ -1,6 +1,5 @@
 using HelpDesk.API.Models.Entities;
 using HelpDesk.API.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HelpDesk.API.Controllers
@@ -38,19 +37,19 @@ namespace HelpDesk.API.Controllers
             return CreatedAtAction(nameof(GetOne), new { id = criado.Id }, criado);
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPost("{id}/iniciar")]
         public async Task<IActionResult> AttendtoChamado(int id)
         {
             return Ok(await _service.AttendtoChamado(id));
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPost("{id}/encerrar")]
-        // public async Task<IActionResult> Encerrar(int id, EncerrarChamadoDto dto)
-        // {
-        //     return Ok(await _service.EncerrarChamado(id, dto.Solucao));
-        // }
+        public async Task<IActionResult> Finish(int id, SolucaoDTO solucao)
+        {
+            return Ok(await _service.FinishChamado(id, solucao.Solucao));
+        }
 
         [HttpPost("{id}/interacoes")]
         public async Task<IActionResult> AddInteraction(int id, Interacao interacao)

@@ -79,7 +79,7 @@ namespace HelpDesk.API.Services
             return chamado;
         }
 
-        public async Task<Chamado> EncerrarChamado(int id, string solucao)
+        public async Task<Chamado> FinishChamado(int id, string solucao)
         {
             if (string.IsNullOrWhiteSpace(solucao))
                 throw new BusinessException("A solução é obrigatória para encerrar o chamado.");
