@@ -8,6 +8,7 @@ namespace HelpDesk.API.Data
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
+
         public DbSet<Chamado> Chamados {get; set;}
     }
 }
