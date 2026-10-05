@@ -16,7 +16,7 @@ namespace HelpDesk.API.Repositories
             return await _context.Categorias.ToListAsync();
         }
 
-        public async Task<Categoria> GetOneAsync(string id){
+        public async Task<Categoria> GetOneAsync(int id){
             return await _context.Categorias.FindAsync(id);
         }
 
