@@ -15,10 +15,10 @@ namespace HelpDesk.API.Models.Entities
         public string Descricao {get; set;}
 
         [Required(ErrorMessage= "Por favor insira um nível de prioridade ao cahamdo.")]
-        public string Prioridade {get; set;}
+        public PrioridadeEnum Prioridade {get; set;}
 
         [Required(ErrorMessage= "Por favor insira um status ao cahamdo.")]
-        public string Status {get; set;}
+        public StatusEnum Status {get; set;}
 
         [Required(ErrorMessage= "Por favor insira o nome do solicitante ao cahamdo.")]
         [MaxLength(50)]
@@ -31,6 +31,8 @@ namespace HelpDesk.API.Models.Entities
 
         public int CategoriaId {get; set;}
 
-        public Categoria Categoria {get; set;}
+        public Categoria? Categoria {get; set;}
+
+        public List<Interacao> Interacoes {get; set;} = new List<Interacao>();
     }
 }
