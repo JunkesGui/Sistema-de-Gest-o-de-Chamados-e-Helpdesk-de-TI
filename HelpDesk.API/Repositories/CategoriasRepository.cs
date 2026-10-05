@@ -16,7 +16,7 @@ namespace HelpDesk.API.Repositories
             return await _context.Categorias.ToListAsync();
         }
 
-        public async Task<Categoria> GetOneAsync(string id){
+        public async Task<Categoria> GetOneAsync(int id){
             return await _context.Categorias.FindAsync(id);
         }
 
@@ -25,7 +25,7 @@ namespace HelpDesk.API.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task AlterAsync(Categoria categoria){
+        public async Task UpdateAsync(Categoria categoria){
             _context.Categorias.Update(categoria);
             await _context.SaveChangesAsync();
         }
