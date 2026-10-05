@@ -42,14 +42,5 @@ namespace HelpDesk.API.Controllers
             return Created(" ", interacao);
         }
 
-        // [HttpGet]
-        // public async Task<IActionResult> GetQueriable(
-        //     [FromQuery] StatusEnum? status,
-        //     [FromQuery] PrioridadeEnum? prioridade,
-        //     [FromQuery] int? categoriaId){
-        // Chamado chamados = await _service.GetAll
-        // return Ok(chamados);
-        //     }
-
     }
 }
