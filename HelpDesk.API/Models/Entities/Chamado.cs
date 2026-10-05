@@ -8,25 +8,29 @@ namespace HelpDesk.API.Models.Entities
 
         [Required(ErrorMessage= "Por favor insira um título ao chamado.")]
         [MaxLength(100)]
-        public string title {get; set;}
+        public string Titulo {get; set;}
 
         [Required(ErrorMessage= "Por favor insira uma descriação ao cahamdo.")]
         [MaxLength(200)]
-        public string description {get; set;}
+        public string Descricao {get; set;}
 
         [Required(ErrorMessage= "Por favor insira um nível de prioridade ao cahamdo.")]
-        public string status {get; set;}
+        public string Prioridade {get; set;}
+
+        [Required(ErrorMessage= "Por favor insira um status ao cahamdo.")]
+        public string Status {get; set;}
 
         [Required(ErrorMessage= "Por favor insira o nome do solicitante ao cahamdo.")]
         [MaxLength(50)]
-        public string requester {get; set;}
+        public string SolicitanteNome {get; set;}
 
-        public DateTime startDate {get; set;}
-        public DateTime? endDate {get; set;}
+        public DateTime DataAbertura {get; set;}
+        public DateTime? DataFechamento {get; set;}
 
-        public string? evaluation {get; set;}
+        public string? Solucao {get; set;}
 
-        [Required(ErrorMessage= "Por favor insira a categoria do cahamdo.")]
-        public string categoria {get; set;}
+        public int CategoriaId {get; set;}
+
+        public Categoria Categoria {get; set;}
     }
 }
