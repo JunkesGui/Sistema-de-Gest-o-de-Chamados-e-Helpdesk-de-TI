@@ -28,7 +28,7 @@ namespace HelpDesk.API.Controllers
             return Ok(await _service.GetOne(id));
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(Categoria categoria)
         {
@@ -36,14 +36,14 @@ namespace HelpDesk.API.Controllers
             return CreatedAtAction(nameof(GetOne), new { id = criada.Id }, criada);
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Categoria categoria)
         {
             return Ok(await _service.Update(id, categoria));
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
